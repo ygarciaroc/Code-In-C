@@ -1,0 +1,33 @@
+/* Yamilet Rocha - 09/13/2024 */
+
+// write a program that reads in seconds, minutes, and hours as inputm and outputs the time
+// in seconds only.
+// EX. If the Input is:
+// 40 6 1
+// where 40 is the number of seconds, 6 is the number of minutes, and 1 is the number of 
+// hours, the outputs is:
+// 4000 seconds
+
+/*My coding below*/
+
+#include <stdio.h>
+
+int main(void) {
+   int seconds, totalSec;
+   int minutes, minsec;
+   int hours, hrmin; 
+
+   //
+
+   scanf("%d%d%d", &seconds, &minutes, &hours);
+
+    hrmin = (hours * 60); // multiplying 60 minutes
+    minsec = (hrmin + minutes); // adding together total minutes
+    totalSec = (minsec * 60) + seconds; //total seconds from hr+min+secs from inputs too
+
+   printf("%d seconds\n", totalSec);
+   
+   return 0;
+
+}
+
