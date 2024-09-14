@@ -1,0 +1,33 @@
+/* Yamilet Rocha - 09/14/2024 - Convert from seconds */
+
+// Write a programm that reads in seconds as input, and outputs the time in seconds,
+// minutes, and hours.
+// EX: If the input is: 4000
+// the output is:
+// Seconds: 40
+// Minutes: 6
+// Hours: 1
+
+/--------------------------------------------------------------------------------------/
+#include <stdio.h>
+
+int main(void) {
+   int seconds; //in and received seconds
+   int minutes; //in and converted minutes
+   int hours; //in and converted hours
+   int totalSeconds;
+
+   scanf("%d", &totalSeconds);
+
+   /* Type your code here */
+    hours = totalSeconds / 3600; // 3600 secs in 1 hour
+    minutes = (totalSeconds % 3600) / 60; // remaining seconds to min
+    seconds = (totalSeconds % 3600) % 60; //remaining seconds
+
+    //output
+    printf("Seconds: %d\n", seconds);
+    printf("Minutes: %d\n", minutes);
+    printf("Hours: %d\n", hours);
+
+   return 0;
+}
