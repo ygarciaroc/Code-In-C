@@ -1,0 +1,51 @@
+/* Yamilet Rocha - 09/16/2024 */
+/* calculator for counting total of pizzas desired to be purchased for a party */
+
+// given # of people attending, output of the # of people, # of pizzas needed, and total cost.
+// people have 2 slices of pizza each
+// each pizza has 12 slices and costs $14.95.
+
+// putput floating-point value with two digits after the decimal using the following:
+// printf("Cost: $%0.2lf\n", cost);
+
+//if input is:
+// = 20
+
+// the output is:
+// people: 20
+// pizza (s) needed: 4
+// cost for 4 pizza (s): $59.80
+
+//Hint: use the ceil() function to round up the number of pizzas so that enough pizzas
+// are ordered.
+
+
+/* ------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    int people;
+    double cost_per_pizza = 14.95;
+    int slices_per_pizza = 12;
+    double total_slices_needed, pizzas_needed, total_cost;
+
+    //ask # of people
+    scanf("%d", &people);
+
+    //each person eats 2 slices
+    total_slices_needed = people * 2;
+
+    //calculate
+    pizzas_needed = ceil(total_slices_needed / slices_per_pizza);
+
+    total_cost = pizzas_needed * cost_per_pizza;
+
+    //output
+    printf("People: %d\n", people);
+    printf("Pizza(s) needed: %.0lf\n", pizzas_needed);
+    printf("Cost for %.0lf pizza(s): $%.2lf\n", pizzas_needed, total_cost);
+
+   return 0;
+}
