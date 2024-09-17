@@ -1,0 +1,45 @@
+/* Yamilet Rocha - 09/16/2024 - Area of a triangle */
+
+// Using Heron's formula, you can calculate the area of a triangle if you know 
+// the lengths of all three sides. Given the length of each side of a 
+// triangle as input, calculate the area of the triangle using Heron's formula as follows:
+//
+// 1.s = half of the triangle's perimeter
+// 2.area = the square root of s*(s-a)*(s-b)*(s-c), where a, b, and c are each
+// sides of the triangle.
+//
+// Hint: Use the sqrt() from math.h to calculate the square root.
+//
+// Output the floating-point value of the area with two digits after the decimal
+// point using the following statement:
+//
+// printf("Triangle area = %0.2lf\n", yourValue);
+//
+// Ex: If the input for a, b, and c is:
+// 3.0 4.0 5.0
+//
+// the output is:
+// Triangle area = 6.00
+
+/*------------------------------------------------------------------------------------------*/
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+   double a, b, c, s, area;
+
+   //input
+   //printf("Enter the sides of the triangle: ");
+   scanf("%lf %lf %lf", &a, &b, &c);
+
+    //calculate half perimeter (s)
+    s = (a + b + c) / 2.0;
+
+    //calculate area of heron's formula
+    area = sqrt(s * (s - a) * (s - b) * (s - c));
+
+    // output area of triangle with two decimal points
+    printf("Triangle area = %0.2lf\n", area);
+
+   return 0;
+}  
