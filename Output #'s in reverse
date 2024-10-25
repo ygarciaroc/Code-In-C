@@ -1,0 +1,43 @@
+//lab problem: output numbers in reverse
+// --------------------- Description -------------------------- // 
+// Write a program that reads a list of integers, and outputs those integers in reverse
+// The input begins with an integer indicating the number of integers that follow.
+// For coding simplicity, follow each output integer by a comma, including the last one. 
+// Assume that the list will always contain less than 20 integers.
+
+// example:
+//input: 5 2 4 6 8 10
+//output: 10,8,6,4,2,
+
+// approach to solution: use arrays
+
+#include <stdio.h>
+
+int main(void) {
+   const int NUM_ELEMENTS = 20;         // Number of input integers
+   int userVals[NUM_ELEMENTS];          // Array to hold the user's input integers
+   int numInput;                        // actual number of integer to read
+   int i;
+   
+      // read the # of input integers
+      scanf("%d", &numInput);
+   
+      //read the input integers into the array
+      for (i = 0; i < numInput; i++) {
+      scanf("%d", &userVals[i]);
+      }
+      
+      //read the input integers into the array
+      for (i = 0; i < numInput; i++) {
+      scanf("%d", &userVals[i]);
+      }
+      
+      //output the array in reverse order with commas
+      for (i = numInput -1; i >= 0; i--) {
+      printf("%d,", userVals[i]);
+      }
+      //add a new line at the end
+      printf("\n");
+
+   return 0;
+}
