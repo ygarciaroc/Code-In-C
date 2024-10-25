@@ -1,0 +1,55 @@
+//lab problem: two smallest numbers
+// --------------------- Description -------------------------- // 
+// Write a program that reads a list of integers, and outputs the two smallest integers in the list, in ascending order. 
+// The input begins with an integer indicating the number of integers that follow.
+// You can assume that the list will have at least 2 integers and less than 20 integers. 
+
+// example:
+//input: 5 10 5 3 21 2
+//output: 2 and 3
+
+// approach to solution: use arrays
+// Hint: Make sure to initialize the second smallest and smallest integers properly.
+// ------------------------------------------------------------ //
+
+#include <stdio.h>
+
+int main(void) {
+
+   const int NUM_ELEMENTS = 20; //maximum number of elements
+   int userVals[NUM_ELEMENTS]; // array to hold the input integers
+   int numInput;               // actual number of input integers
+   int i;
+   int smallest, secondSmallest;
+   
+   //read the number of integers
+   scanf("%d", &numInput);
+
+   //read the integers into the array
+   for (i = 0; i < numInput; i++) {
+      scanf("%d", &userVals[i]);
+      }
+      
+   if (userVals[0] < userVals[1]) {
+      smallest = userVals[0];
+      secondSmallest = userVals[1];
+      } else {
+      smallest = userVals[1];
+      secondSmallest = userVals[0];   
+         }
+      
+      //read the integers into the array
+   for (i = 2; i < numInput; i++) {
+      if (userVals[i] < smallest) {
+         secondSmallest = smallest;
+         smallest = userVals[i];
+      } else if (userVals[i] < secondSmallest) {
+         secondSmallest = userVals[i];   
+         }
+      }
+
+   //output the two smallest integers
+   printf("%d and %d\n", smallest, secondSmallest);
+
+   return 0;
+}
