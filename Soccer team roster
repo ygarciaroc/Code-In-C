@@ -1,0 +1,98 @@
+// Soccer team roster
+
+#include <stdio.h>
+
+#define NUM_PLAYERS 5
+
+// Function to output the roster
+void outputRoster(int jerseyNumbers[], int ratings[]) {
+    printf("ROSTER\n");
+    for (int i = 0; i < NUM_PLAYERS; i++) {
+        printf("Player %d -- Jersey number: %d, Rating: %d\n", i + 1, jerseyNumbers[i], ratings[i]);
+    }
+    printf("\n");
+}
+
+int main(void) {
+    int jerseyNumbers[NUM_PLAYERS];  // Array to store jersey numbers
+    int ratings[NUM_PLAYERS];        // Array to store player ratings
+    char option;
+    int jersey, rating, newJersey, newRating;
+
+    // (1) Get user input for jersey numbers and ratings
+    for (int i = 0; i < NUM_PLAYERS; i++) {
+        printf("Enter player %d's jersey number:\n", i + 1);
+        scanf("%d", &jerseyNumbers[i]);
+        printf("Enter player %d's rating:\n\n", i + 1);  // Adding newline here after the rating input
+        scanf("%d", &ratings[i]);
+    }
+
+    // Output initial roster
+    outputRoster(jerseyNumbers, ratings);
+
+    // (2) Implement the menu
+    do {
+        printf("MENU\n");
+        printf("u - Update player rating\n");
+        printf("a - Output players above a rating\n");
+        printf("r - Replace player\n");
+        printf("o - Output roster\n");
+        printf("q - Quit\n\n");
+        printf("Choose an option:\n");
+        scanf(" %c", &option); // Notice the space before %c to ignore previous newline characters
+
+        if (option == 'o') {  // (3) Output roster
+            outputRoster(jerseyNumbers, ratings);
+        }
+        else if (option == 'u') {  // (4) Update player rating
+            printf("Enter a jersey number:\n");
+            scanf("%d", &jersey);
+            int found = 0;
+            for (int i = 0; i < NUM_PLAYERS; i++) {
+                if (jerseyNumbers[i] == jersey) {
+                    printf("Enter a new rating for player:\n");
+                    scanf("%d", &newRating);
+                    ratings[i] = newRating;
+                    found = 1;
+                    break;
+                }
+            }
+            if (!found) {
+                printf("Player with jersey number %d not found.\n", jersey);
+            }
+        }
+        else if (option == 'a') {  // (5) Output players above a rating
+            printf("Enter a rating:\n");
+            scanf("%d", &rating);
+            printf("\nABOVE %d\n", rating);
+            for (int i = 0; i < NUM_PLAYERS; i++) {
+                if (ratings[i] > rating) {
+                    printf("Player %d -- Jersey number: %d, Rating: %d\n", i + 1, jerseyNumbers[i], ratings[i]);
+                }
+            }
+            printf("\n");
+        }
+        else if (option == 'r') {  // (6) Replace player
+            printf("Enter a jersey number:\n");
+            scanf("%d", &jersey);
+            int found = 0;
+            for (int i = 0; i < NUM_PLAYERS; i++) {
+                if (jerseyNumbers[i] == jersey) {
+                    printf("Enter a new jersey number:\n");
+                    scanf("%d", &newJersey);
+                    printf("Enter a rating for the new player:\n");
+                    scanf("%d", &newRating);
+                    jerseyNumbers[i] = newJersey;
+                    ratings[i] = newRating;
+                    found = 1;
+                    break;
+                }
+            }
+            if (!found) {
+                printf("Player with jersey number %d not found.\n", jersey);
+            }
+        }
+    } while (option != 'q');  // (7) Quit program
+
+    return 0;
+}
