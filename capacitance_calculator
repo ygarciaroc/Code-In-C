@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.141592653589793
+
+// Function to calculate capacitance in microfarads
+// Z in ohms, f in Hz
+float calculate_capacitance(float Z, float f) {
+    if (Z <= 0 || f <= 0) return 0.0;
+    return 1.0 / (2.0 * PI * f * Z) * 1e6; // Convert to microfarads
+}
+
+int main() {
+    // Example data: impedance (ohms) and frequency (Hz)
+    float impedances[] = {0.0005, 0.0006, 0.007};
+    float frequencies[] = {2.6e6, 2.6e6, 2.6e6};
+    int count = sizeof(impedances) / sizeof(impedances[0]);
+
+    printf("Capacitance Calculator
+");
+    printf("----------------------
+");
+
+    for (int i = 0; i < count; i++) {
+        float C = calculate_capacitance(impedances[i], frequencies[i]);
+        printf("Z = %.6f ohms, f = %.2f Hz => C = %.2f uF
+", impedances[i], frequencies[i], C);
+    }
+
+    return 0;
+}
