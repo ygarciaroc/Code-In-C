@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void printDice(int roll) {
+    switch(roll) {
+        case 1:
+            printf(" ----- \n");
+            printf("|     |\n");
+            printf("|  *  |\n");
+            printf("|     |\n");
+            printf(" ----- \n");
+            break;
+        case 2:
+            printf(" ----- \n");
+            printf("|*    |\n");
+            printf("|     |\n");
+            printf("|    *|\n");
+            printf(" ----- \n");
+            break;
+        case 3:
+            printf(" ----- \n");
+            printf("|*    |\n");
+            printf("|  *  |\n");
+            printf("|    *|\n");
+            printf(" ----- \n");
+            break;
+        case 4:
+            printf(" ----- \n");
+            printf("|*   *|\n");
+            printf("|     |\n");
+            printf("|*   *|\n");
+            printf(" ----- \n");
+            break;
+        case 5:
+            printf(" ----- \n");
+            printf("|*   *|\n");
+            printf("|  *  |\n");
+            printf("|*   *|\n");
+            printf(" ----- \n");
+            break;
+        case 6:
+            printf(" ----- \n");
+            printf("|*   *|\n");
+            printf("|*   *|\n");
+            printf("|*   *|\n");
+            printf(" ----- \n");
+            break;
+    }
+}
+
+int main() {
+    int dice, i, roll;
+    int stats[7] = {0}; // index 1-6 for dice results
+
+    srand(time(NULL));
+
+    printf("🎲 ASCII Dice Roller 🎲\n");
+    printf("How many dice do you want to roll? ");
+    scanf("%d", &dice);
+
+    for(i = 0; i < dice; i++) {
+        roll = rand() % 6 + 1;
+        stats[roll]++;
+        printf("\nDice %d rolled: %d\n", i+1, roll);
+        printDice(roll);
+    }
+
+    printf("\n--- Roll Statistics ---\n");
+    for(i = 1; i <= 6; i++) {
+        if(stats[i] > 0)
+            printf("%d appeared %d time(s)\n", i, stats[i]);
+    }
+
+    return 0;
+}
