@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int code;
+
+    // Ask the user for an ASCII code
+    printf("Enter an ASCII code (0 - 127): ");
+    scanf("%d", &code);
+
+    if (code >= 0 && code <= 127) {
+        printf("The ASCII character for %d is: %c\n", code, code);
+    } else {
+        printf("Invalid ASCII code. Please enter a number between 0 and 127.\n");
+    }
+
+    return 0;
+}
