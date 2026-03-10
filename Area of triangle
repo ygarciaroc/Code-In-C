@@ -26,7 +26,7 @@
 #include <math.h>
 
 int main() {
-   double a, b, c, s, area;
+   double a, b, c, s, area; // variables
 
    //input
    //printf("Enter the sides of the triangle: ");
